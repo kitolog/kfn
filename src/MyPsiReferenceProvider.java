@@ -175,7 +175,7 @@ public class MyPsiReferenceProvider extends PsiReferenceProvider {
 
         Map<String, String> classMethods = new HashMap<String, String>(50);
         if(!methodsList.isEmpty()){
-            String[] methods = methodsList.split(",");
+            String[] methods = methodsList.split("\\)(\\s+|),");
             for (String method : methods) {
                 String[] splittedMethod = method.trim().split("\\(");
                 Integer s = splittedMethod.length;
