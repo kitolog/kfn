@@ -1,0 +1,44 @@
+<idea-plugin version="2">
+    <name>KohanaFactoryNavigator</name>
+    <description>Kohana factory navigator for PhpStorm.
+        Authors: kitolog
+    </description>
+    <version>0.5</version>
+    <vendor email="nikita.kosilo@gmail.com" url="http://www.softswiss.com">kitolog</vendor>
+
+    <description><![CDATA[
+      KohanaFactoryNavigator
+      Added Kohana 3.3 support
+      Added Kohana 3.3 PRC-0
+      Added search by Methods, added search config file
+      ]]></description>
+
+    <change-notes><![CDATA[
+      KohanaFactoryNavigator
+      ]]>
+    </change-notes>
+
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="107.105"/>
+
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <application-components>
+    </application-components>
+
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <psi.referenceContributor implementation="MyPsiReferenceContributor"/>
+        <projectConfigurable  implementation="KohanaFactoryNavigatorSettingsPage"><loadForDefaultProject/></projectConfigurable >
+        <!-- Add your extensions here -->
+    </extensions>
+</idea-plugin>
