@@ -13,6 +13,7 @@ import com.intellij.notification.NotificationType;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.HashMap;
 
 public class MyPsiReferenceProvider extends PsiReferenceProvider {
@@ -21,6 +22,7 @@ public class MyPsiReferenceProvider extends PsiReferenceProvider {
     protected static String elementMethodName;
     protected static String methodsList;
     protected static Boolean kohanaPSR;
+    protected static Map<String, String> classMethods = new HashMap<String, String>(50);
 
     public static final PsiReferenceProvider[] EMPTY_ARRAY = new PsiReferenceProvider[0];
 
@@ -115,8 +117,19 @@ public class MyPsiReferenceProvider extends PsiReferenceProvider {
                 try {
                     Method phpPsiElementGetName = prevEl.getClass().getMethod("getName");
                     elementMethodName = (String) phpPsiElementGetName.invoke(prevEl);
-//                    String factoryMethod = new String("factory");
-                    if (factoriesString.contentEquals(elementMethodName.toLowerCase())) {
+
+                    if(!methodsList.isEmpty()){
+                        String[] methods = methodsList.split("\\)(\\s+|),");
+                        for (String method : methods) {
+                            String[] splittedMethod = method.trim().split("\\(");
+
+                            if(splittedMethod.length != 0){
+                                classMethods.put(splittedMethod[0], splittedMethod[1]);
+                            }
+                        }
+                    }
+
+                    if (factoriesString.contains(elementMethodName.toLowerCase())) {
                         Method getClassReference = prevEl.getClass().getMethod("getClassReference");
                         Object classRef = getClassReference.invoke(prevEl);
 
@@ -127,6 +140,7 @@ public class MyPsiReferenceProvider extends PsiReferenceProvider {
                             return true;
                         }
                     } else if (!methodsList.isEmpty() && methodsList.contains(elementMethodName.toLowerCase())) {
+                        elementClassName = classByMethodName(elementMethodName.toLowerCase());
                         return true;
                     }
                 } catch (Exception ex) {
@@ -173,21 +187,20 @@ public class MyPsiReferenceProvider extends PsiReferenceProvider {
 
     static boolean checkClass(String className) {
 
-        Map<String, String> classMethods = new HashMap<String, String>(50);
-        if(!methodsList.isEmpty()){
-            String[] methods = methodsList.split("\\)(\\s+|),");
-            for (String method : methods) {
-                String[] splittedMethod = method.trim().split("\\(");
-                Integer s = splittedMethod.length;
+        Boolean result = ((elementClassName != null ) && elementClassName.equals(className)) || (classMethods.containsKey(className) && classMethods.get(className).contains(elementMethodName));
+        return result;
+    }
 
-                if(splittedMethod.length != 0){
-                    classMethods.put(splittedMethod[0], splittedMethod[1]);
-                }
+    static String classByMethodName(String methodName) {
 
+        String result = new String();
+        for( Entry<String, String> entry : classMethods.entrySet() ){
+
+            if(entry.getValue().contains(methodName)){
+                result = entry.getKey();
+                break;
             }
         }
-
-        Boolean result = ((elementClassName != null ) && elementClassName.equals(className)) || (classMethods.containsKey(className) && classMethods.get(className).contains(elementMethodName));
         return result;
     }
 }

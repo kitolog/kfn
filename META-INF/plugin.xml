@@ -11,6 +11,8 @@
       Added Kohana 3.3 support
       Added Kohana 3.3 PRC-0
       Added search by Methods, added search config file
+      Added factoryMethods feature
+      Added fixed related classes call
       ]]></description>
 
     <change-notes><![CDATA[
