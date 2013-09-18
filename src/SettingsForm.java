@@ -8,6 +8,6 @@ import javax.swing.*;
  * To change this template use File | Settings | File Templates.
  */
 public class SettingsForm {
-    private JCheckBox checkBox1;
-    private JTextField textField1;
+	private JCheckBox checkBox1;
+	private JTextField textField1;
 }
