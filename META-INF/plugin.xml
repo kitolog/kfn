@@ -1,22 +1,21 @@
 <idea-plugin version="2">
     <name>KohanaFactoryNavigator</name>
-    <description>Kohana factory navigator for PhpStorm.
-        Authors: kitolog
+    <description>
+        PHP Framework Kohana factories navigator for PhpStorm.
     </description>
-    <version>0.6</version>
+    <version>1.2</version>
     <vendor email="nikita.kosilo@gmail.com" url="http://www.softswiss.com">kitolog</vendor>
 
-    <description><![CDATA[
-      KohanaFactoryNavigator
-      Added Kohana 3.3 support
-      Added Kohana 3.3 PRC-0
-      Added search by Methods, added search config file
-      Added factoryMethods feature
-      Added fixed related classes call
-      ]]></description>
-
     <change-notes><![CDATA[
-      KohanaFactoryNavigator
+      v0.1: KohanaFactoryNavigator<br />
+      v0.2: Added Kohana 3.3 support<br />
+      v0.3: Added Kohana 3.3 PRC-0<br />
+      v0.4: Added search by Methods, added search config file<br />
+      v0.5: Added factoryMethods feature<br />
+      v0.6: Added fixed related classes call<br />
+      v1.0: Added humanized settings, added replace pattern, added scan dirs, rewrited work with classes<br />
+      v1.1: Minor bugfixes and corrections<br />
+      v1.2: Added separating setting by git branches, added searching files not only with class regexp, hidden Notifications, added DebugMode<br />
       ]]>
     </change-notes>
 
@@ -37,6 +36,7 @@
     </actions>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <psi.referenceContributor implementation="MyPsiReferenceContributor"/>

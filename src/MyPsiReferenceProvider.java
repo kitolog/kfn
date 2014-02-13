@@ -1,10 +1,8 @@
-import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
 import com.intellij.util.ProcessingContext;
-import com.thoughtworks.xstream.mapper.ArrayMapper;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.notification.Notification;
 import com.intellij.notification.Notifications;
@@ -12,266 +10,163 @@ import com.intellij.notification.NotificationType;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.HashMap;
+import java.util.List;
 
 public class MyPsiReferenceProvider extends PsiReferenceProvider {
 
-	protected static String elementClassName;
-	protected static String elementMethodName;
-	protected static String methodsList;
-	protected static String classesTemplate;
-	protected static Boolean kohanaPSR;
-	protected static Map<String, String> classMethods = new HashMap<String, String>(50);
+    protected static KohanaClassesState.KohanaClass KohanaClass;
+    protected static String elementMethodName;
+    protected static Boolean kohanaPSR;
+    protected static Boolean debugMode;
 
-	public static final PsiReferenceProvider[] EMPTY_ARRAY = new PsiReferenceProvider[0];
+    public static final PsiReferenceProvider[] EMPTY_ARRAY = new PsiReferenceProvider[0];
 
-	public MyPsiReferenceProvider()
-	{
-	}
+    public MyPsiReferenceProvider() {
+    }
 
-	@NotNull
-	@Override
-	public PsiReference[] getReferencesByElement(@NotNull PsiElement element, @NotNull final ProcessingContext context)
-	{
+    @NotNull
+    @Override
+    public PsiReference[] getReferencesByElement(@NotNull PsiElement element, @NotNull final ProcessingContext context) {
 
-		Project project = element.getProject();
-		PropertiesComponent properties = PropertiesComponent.getInstance(project);
-		String classesString = properties.getValue("classesList", "view,orm,request");
-		String factoriesString = properties.getValue("factoriesList", "");
-		methodsList = properties.getValue("methodsList", "");
-		classesTemplate = properties.getValue("classesTemplate", "");
-		kohanaPSR = properties.getBoolean("kohanaPSR", false);
-		String modulesList = properties.getValue("modulesList", "");
-		String kohanaAppDir = properties.getValue("kohanaAppPath", "application, modules");
+        Project project = element.getProject();
+        final StorageHelper store;
+        try {
+            store = new StorageHelper(project);
+            if (store.storageObject == null) {
+                return PsiReference.EMPTY_ARRAY;
+            }
 
-		String className = element.getClass().getName();
-		Class elementClass = element.getClass();
-		if (className.endsWith("StringLiteralExpressionImpl"))
-		{
-			try
-			{
-				Method method = elementClass.getMethod("getValueRange");
-				Object obj = method.invoke(element);
-				TextRange textRange = (TextRange) obj;
-				Class _PhpPsiElement = elementClass.getSuperclass().getSuperclass().getSuperclass();
-				Method phpPsiElementGetText = _PhpPsiElement.getMethod("getText");
-				Object obj2 = phpPsiElementGetText.invoke(element);
-				String str = obj2.toString();
-				String uri = str.substring(textRange.getStartOffset(), textRange.getEndOffset());
-				int start = textRange.getStartOffset();
-				int len = textRange.getLength();
-				if (uri.endsWith(".tpl") || uri.startsWith("smarty:") || isKohanaFactoryCall(element, classesString, factoriesString))
-				{
-					Map<String, String> classesTemplateMap = splitClassesTemplate();
-					String[] appDirs = kohanaAppDir.split(",");
-					ArrayList<VirtualFile> resultDirs = new ArrayList<VirtualFile>();
+            kohanaPSR = store.storageObject.kohanaPSR;
+            debugMode = store.storageObject.debugMode;
+            String factoriesString = store.storageObject.factoriesList;
+            List<KohanaClassesState.KohanaClass> classesList = store.storageObject.classes;
+            List<PathsState.Path> pathList = store.storageObject.paths;
 
-					for (String dir : appDirs)
-					{
-						if (!dir.isEmpty())
-						{
-							if (dir.contains("modules"))
-							{
-								VirtualFile modulesDir = project.getBaseDir().findFileByRelativePath(dir.trim());
-								if ((dir != null) && modulesDir.isDirectory())
-								{
-									VirtualFile[] modules = modulesDir.getChildren();
-									for (VirtualFile module : modules)
-									{
-										if ((modulesList.isEmpty()) || modulesList.contains(module.getName()))
-										{
-											VirtualFile found = module.findFileByRelativePath(getClassPath());
-											if ((found != null) && found.isDirectory())
-											{
-												resultDirs.add(found);
-											}
-										}
-									}
-								}
-							}
-							else
-							{
-								VirtualFile found = project.getBaseDir().findFileByRelativePath(dir + getClassPath());
-								if ((found != null) && found.isDirectory())
-								{
-									resultDirs.add(found);
-								}
-							}
-						}
-					}
-					if (resultDirs.isEmpty())
-					{
-						Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "resultDirs are empty", NotificationType.ERROR));
-						return PsiReference.EMPTY_ARRAY;
-					}
+            String className = element.getClass().getName();
+            Class elementClass = element.getClass();
+            if (className.endsWith("StringLiteralExpressionImpl") && classesList != null && pathList != null) {
+                try {
+                    Method method = elementClass.getMethod("getValueRange");
+                    Object obj = method.invoke(element);
+                    TextRange textRange = (TextRange) obj;
+                    Class _PhpPsiElement = elementClass.getSuperclass().getSuperclass().getSuperclass();
+                    Method phpPsiElementGetText = _PhpPsiElement.getMethod("getText");
+                    Object obj2 = phpPsiElementGetText.invoke(element);
+                    String str = obj2.toString();
+                    String uri = str.substring(textRange.getStartOffset(), textRange.getEndOffset());
+                    int start = textRange.getStartOffset();
+                    int len = textRange.getLength();
+                    if (uri.endsWith(".tpl") || uri.startsWith("smarty:") || isKohanaFactoryCall(element, classesList, factoriesString, project)) {
+                        ArrayList<VirtualFile> resultDirs = new ArrayList<VirtualFile>();
 
-					PsiReference ref = new MyReference(uri, element, new TextRange(start, start + len), project, resultDirs, elementClassName, kohanaPSR, classesTemplateMap);
-					return new PsiReference[]{ref};
-				}
+                        for (PathsState.Path path : pathList) {
+                            if (!path.path.isEmpty()) {
+                                VirtualFile found = project.getBaseDir().findFileByRelativePath(getClassPath(path.path));
+                                if ((found != null) && found.isDirectory()) {
+                                    resultDirs.add(found);
+                                }
+                            }
+                        }
+                        if (resultDirs.isEmpty()) {
+                            if (debugMode) {
+                                Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "resultDirs are empty", NotificationType.ERROR));
+                            }
+                            return PsiReference.EMPTY_ARRAY;
+                        }
 
-			}
-			catch (Exception e)
-			{
-				Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getMessage(), NotificationType.ERROR));
-				Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getStackTrace(), NotificationType.ERROR));
-			}
-		}
+                        PsiReference ref = new MyReference(uri, element, new TextRange(start, start + len), project, resultDirs, KohanaClass, kohanaPSR, debugMode);
+                        return new PsiReference[]{ref};
+                    }else{
+                        if (debugMode) {
+                            Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "isKohanaFactoryCall is equal to false", NotificationType.ERROR));
+                        }
+                    }
 
-		return PsiReference.EMPTY_ARRAY;
-	}
+                } catch (Exception e) {
 
-	public static boolean isKohanaFactoryCall(PsiElement element, String classesList, String factoriesString)
-	{
-		PsiElement prevEl = element.getParent();
-		PsiElement orig = element.getOriginalElement();
+                    if (debugMode) {
+                        Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getMessage(), NotificationType.ERROR));
+                        Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getStackTrace(), NotificationType.ERROR));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            if (debugMode) {
+                Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception!", NotificationType.ERROR));
+                e.printStackTrace();
+            }
+        }
+        return PsiReference.EMPTY_ARRAY;
+    }
 
-		String elClassName;
-		if (prevEl != null)
-		{
-			elClassName = prevEl.getClass().getName();
-		}
-		prevEl = prevEl.getParent();
-		if (prevEl != null)
-		{
-			elClassName = prevEl.getClass().getName();
-			if (elClassName.endsWith("MethodReferenceImpl"))
-			{
-				try
-				{
-					Method phpPsiElementGetName = prevEl.getClass().getMethod("getName");
-					elementMethodName = (String) phpPsiElementGetName.invoke(prevEl);
+    public static boolean isKohanaFactoryCall(PsiElement element, List<KohanaClassesState.KohanaClass> classesList, String factoriesString, Project project) {
+        PsiElement prevEl = element.getParent();
+        PsiElement orig = element.getOriginalElement();
 
-					if (!methodsList.isEmpty())
-					{
-						String[] methods = methodsList.split("\\)(\\s+|),");
-						for (String method : methods)
-						{
-							String[] splittedMethod = method.trim().split("\\(");
+        String elClassName;
+        if (prevEl != null) {
+            elClassName = prevEl.getClass().getName();
+        }
+        prevEl = prevEl.getParent();
+        if (prevEl != null) {
+            elClassName = prevEl.getClass().getName();
+            if (elClassName.endsWith("MethodReferenceImpl")) {
+                try {
+                    Method phpPsiElementGetName = prevEl.getClass().getMethod("getName");
+                    elementMethodName = (String) phpPsiElementGetName.invoke(prevEl);
+                    String allowedMethods = new String();
+                    for (KohanaClassesState.KohanaClass kc : classesList) {
+                        if (kc.methods != null && kc.methods.length() > 0) {
+                            allowedMethods += kc.methods;
+                        }
+                    }
+                    if (factoriesString.contains(elementMethodName.toLowerCase()) || (allowedMethods.length() > 0 && allowedMethods.contains(elementMethodName.toLowerCase()))) {
+                        String elementClassName = new String();
+                        if (factoriesString.contains(elementMethodName.toLowerCase())) {
+                            Method getClassReference = prevEl.getClass().getMethod("getClassReference");
+                            Object classRef = getClassReference.invoke(prevEl);
 
-							if (splittedMethod.length != 0)
-							{
-								classMethods.put(splittedMethod[0], splittedMethod[1]);
-							}
-						}
-					}
+                            String phpClassName = (String) phpPsiElementGetName.invoke(classRef);
+                            elementClassName = phpClassName.toLowerCase();
+                        }
 
-					if (factoriesString.contains(elementMethodName.toLowerCase()))
-					{
-						Method getClassReference = prevEl.getClass().getMethod("getClassReference");
-						Object classRef = getClassReference.invoke(prevEl);
+                        KohanaClass = null;
+                        for (KohanaClassesState.KohanaClass kc : classesList) {
+                            if (factoriesString.contains(elementMethodName.toLowerCase()) && !kc.name.isEmpty() && kc.name.equals(elementClassName)) {
+                                KohanaClass = kc;
+                                break;
+                            } else if (!kc.methods.isEmpty() && kc.methods.contains(elementMethodName.toLowerCase())) {
+                                KohanaClass = kc;
+                                break;
+                            }
+                        }
 
-						String phpClassName = (String) phpPsiElementGetName.invoke(classRef);
+                        if (KohanaClass != null) {
+                            return true;
+                        } else {
+                            /**
+                             * @TODO add temp classes creation
+                             */
+                            KohanaClassesState kohanaClassesState = new KohanaClassesState(project);
+                            KohanaClassesState.KohanaClass tkc = kohanaClassesState.createTempKohanaClass(elementClassName);
+                        }
+                    }
+                } catch (Exception ex) {
+                    if (debugMode) {
+                        Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "isKohanaFactoryCall", "Exception: " + ex.getStackTrace(), NotificationType.ERROR));
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
-						elementClassName = new String(phpClassName.toLowerCase());
-						if (classesList.contains(elementClassName))
-						{
-							return true;
-						}
-					}
-					else if (!methodsList.isEmpty() && methodsList.contains(elementMethodName.toLowerCase()))
-					{
-						elementClassName = classByMethodName(elementMethodName.toLowerCase());
-						return true;
-					}
-				}
-				catch (Exception ex)
-				{
-					Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "isKohanaFactoryCall", "Exception: " + ex.getStackTrace(), NotificationType.ERROR));
-				}
-			}
-		}
-		return false;
-	}
+    public String getClassPath(String path) {
+        String result;
 
-	public String getClassPath()
-	{
-		String result;
-		String folder;
+        result = path + "/" + KohanaClass.path.trim();
 
-		if (checkClass("view"))
-		{
-			result = "/views";
-		}
-		else if (checkClass("config"))
-		{
-			result = "/config";
-		}
-		else
-		{
-			result = "/classes/";
-
-			if (checkClass("orm"))
-			{
-				folder = "model";
-			}
-			else if (checkClass("request"))
-			{
-				folder = "controller";
-			}
-			else if (checkClass("forge"))
-			{
-				folder = "form";
-			}
-			else
-			{
-				folder = elementClassName.toLowerCase();
-			}
-
-			if (kohanaPSR)
-			{
-				result += folder.substring(0, 1).toUpperCase() + folder.substring(1);
-			}
-			else
-			{
-				result += folder;
-			}
-		}
-
-		result += '/';
-		return result;
-	}
-
-	static boolean checkClass(String className)
-	{
-
-		Boolean result = ((elementClassName != null) && elementClassName.equals(className)) || (classMethods.containsKey(className) && classMethods.get(className).contains(elementMethodName));
-		return result;
-	}
-
-	static String classByMethodName(String methodName)
-	{
-
-		String result = new String();
-		for (Entry<String, String> entry : classMethods.entrySet())
-		{
-
-			if (entry.getValue().contains(methodName))
-			{
-				result = entry.getKey();
-				break;
-			}
-		}
-		return result;
-	}
-
-	static Map splitClassesTemplate()
-	{
-		Map<String, String> result = new HashMap<String, String>(50);
-		if (!classesTemplate.isEmpty())
-		{
-			String[] methods = classesTemplate.split("\\)(\\s+|),");
-			for (String method : methods)
-			{
-				String[] splittedMethod = method.trim().split("\\(");
-
-				if (splittedMethod.length != 0)
-				{
-					result.put(splittedMethod[0], splittedMethod[1]);
-				}
-			}
-		}
-		return result;
-	}
+        result += '/';
+        return result;
+    }
 }
