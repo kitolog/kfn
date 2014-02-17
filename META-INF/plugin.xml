@@ -3,7 +3,7 @@
     <description>
         PHP Framework Kohana factories navigator for PhpStorm.
     </description>
-    <version>1.2</version>
+    <version>1.2.1</version>
     <vendor email="nikita.kosilo@gmail.com" url="http://www.softswiss.com">kitolog</vendor>
 
     <change-notes><![CDATA[
