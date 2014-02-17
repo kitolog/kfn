@@ -29,46 +29,57 @@ public class StorageHelper {
         public String factoriesList;
     }
 
-    public StorageHelper(Project pr) throws Exception {
+    public StorageHelper(Project pr) throws Exception
+    {
         project = pr;
         storageObject = new Storage();
 
         gitBranchName = new String("");
 
-        try {
+        try
+        {
             GitRepositoryManager repoManager = ServiceManager.getService(project, GitRepositoryManager.class);
             List<git4idea.repo.GitRepository> repositories = repoManager.getRepositories();
-            for (git4idea.repo.GitRepository repo : repositories) {
+            for (git4idea.repo.GitRepository repo : repositories)
+            {
                 GitLocalBranch branch = repo.getCurrentBranch();
                 gitBranchName = branch.getName() + ".";
             }
-        } catch (Exception e) {
-            Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "StorageHelper", "Reading current git branch failed. Exception: " + e.getMessage(), NotificationType.ERROR));
+        }
+        catch (Exception e)
+        {
+//            Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "StorageHelper", "Reading current git branch failed. Exception: " + e.getMessage(), NotificationType.ERROR));
         }
 
         read();
     }
 
-    public void write() {
+    public void write()
+    {
 
         PropertiesComponent properties = PropertiesComponent.getInstance(project);
 //        project
-        if (storageObject.kohanaPSR != null) {
+        if (storageObject.kohanaPSR != null)
+        {
             properties.setValue(gitBranchName + "kohanaPSR", String.valueOf(storageObject.kohanaPSR));
         }
 
-        if (storageObject.debugMode != null) {
+        if (storageObject.debugMode != null)
+        {
             properties.setValue(gitBranchName + "debugMode", String.valueOf(storageObject.debugMode));
         }
 
-        if (storageObject.factoriesList != null) {
+        if (storageObject.factoriesList != null)
+        {
             properties.setValue(gitBranchName + "factoriesList", storageObject.factoriesList);
         }
 
         String pathString = new String();
-        if (!storageObject.paths.isEmpty()) {
+        if (!storageObject.paths.isEmpty())
+        {
             ArrayList<String> pathList = new ArrayList<String>();
-            for (PathsState.Path path : storageObject.paths) {
+            for (PathsState.Path path : storageObject.paths)
+            {
                 pathList.add(path.toString());
             }
             pathString = StringUtils.join(pathList.toArray(), ';');
@@ -77,9 +88,11 @@ public class StorageHelper {
         properties.setValue(gitBranchName + "paths", pathString);
 
         String classesString = new String();
-        if (!storageObject.classes.isEmpty()) {
+        if (!storageObject.classes.isEmpty())
+        {
             ArrayList<String> classesList = new ArrayList<String>();
-            for (KohanaClassesState.KohanaClass kc : storageObject.classes) {
+            for (KohanaClassesState.KohanaClass kc : storageObject.classes)
+            {
                 classesList.add(kc.toString());
             }
             classesString = StringUtils.join(classesList.toArray(), ';');
@@ -88,7 +101,8 @@ public class StorageHelper {
         properties.setValue(gitBranchName + "classes", classesString);
     }
 
-    public void read() throws Exception {
+    public void read() throws Exception
+    {
 
         PropertiesComponent properties = PropertiesComponent.getInstance(project);
         storageObject.factoriesList = properties.getValue(gitBranchName + "factoriesList", DefaultSettings.factoriesList);
@@ -100,10 +114,12 @@ public class StorageHelper {
          */
         String classes = properties.getValue(gitBranchName + "classes", DefaultSettings.classes);
         KohanaClassesState kcs = new KohanaClassesState(project);
-        if (classes.isEmpty()) {
+        if (classes.isEmpty())
+        {
             classes = DefaultSettings.classes;
         }
-        if (!classes.isEmpty()) {
+        if (!classes.isEmpty())
+        {
             String[] classesList = StringUtils.split(classes, ';');
             if (classesList.length > 0)
             {
@@ -113,7 +129,8 @@ public class StorageHelper {
                     String[] classProperties = StringUtils.split(classesPart, ',');
                     if (classProperties.length > 0)
                     {
-                        for (String classProperty : classProperties) {
+                        for (String classProperty : classProperties)
+                        {
                             String[] classValues = StringUtils.split(classProperty, ':');
                             if (classValues.length == 2)
                             {
@@ -131,7 +148,8 @@ public class StorageHelper {
          */
         String path = properties.getValue(gitBranchName + "paths", DefaultSettings.paths);
         PathsState ps = new PathsState(project);
-        if (!path.isEmpty()) {
+        if (!path.isEmpty())
+        {
             String[] pathList = StringUtils.split(path, ';');
             if (pathList.length > 0)
             {
@@ -141,7 +159,8 @@ public class StorageHelper {
                     String[] pathProperties = StringUtils.split(pathPart, ',');
                     if (pathProperties.length > 0)
                     {
-                        for (String pathProperty : pathProperties) {
+                        for (String pathProperty : pathProperties)
+                        {
                             String[] pathValues = StringUtils.split(pathProperty, ':');
                             if (pathValues.length > 0)
                             {
@@ -158,10 +177,10 @@ public class StorageHelper {
         }
         else
         {
-            if(kcs != null)
+            if (kcs != null)
             {
                 ps.scanDirs(kcs, false);
-                if(ps.paths != null && !ps.paths.isEmpty())
+                if (ps.paths != null && !ps.paths.isEmpty())
                 {
                     setPaths(ps.paths);
                     write();
@@ -170,27 +189,32 @@ public class StorageHelper {
         }
     }
 
-    public void setKohanaPSR(Boolean psr) {
+    public void setKohanaPSR(Boolean psr)
+    {
         storageObject.kohanaPSR = psr;
         write();
     }
 
-    public void setDebugMode(Boolean dm) {
+    public void setDebugMode(Boolean dm)
+    {
         storageObject.debugMode = dm;
         write();
     }
 
-    public void setFactoriesList(String factories) {
+    public void setFactoriesList(String factories)
+    {
         storageObject.factoriesList = factories;
         write();
     }
 
-    public void setPaths(List<PathsState.Path> paths) {
+    public void setPaths(List<PathsState.Path> paths)
+    {
         storageObject.paths = paths;
         write();
     }
 
-    public void setClasses(List<KohanaClassesState.KohanaClass> classes) {
+    public void setClasses(List<KohanaClassesState.KohanaClass> classes)
+    {
         storageObject.classes = classes;
         write();
     }

@@ -16,6 +16,7 @@
       v1.0: Added humanized settings, added replace pattern, added scan dirs, rewrited work with classes<br />
       v1.1: Minor bugfixes and corrections<br />
       v1.2: Added separating setting by git branches, added searching files not only with class regexp, hidden Notifications, added DebugMode<br />
+      v1.2.1: Moved settings reader to plugin initialization<br />
       ]]>
     </change-notes>
 
@@ -39,7 +40,7 @@
     <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <psi.referenceContributor implementation="MyPsiReferenceContributor"/>
+        <psi.referenceContributor implementation="KfnPsiReferenceContributor"/>
         <projectConfigurable  implementation="KohanaFactoryNavigatorSettingsPage"><loadForDefaultProject/></projectConfigurable >
         <!-- Add your extensions here -->
     </extensions>

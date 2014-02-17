@@ -26,7 +26,7 @@ import org.apache.commons.lang.WordUtils;
 
 import java.util.ArrayList;
 
-public class MyReference implements PsiReference {
+public class KfnReference implements PsiReference {
     protected PsiElement element;
     protected TextRange textRange;
     protected Project project;
@@ -38,7 +38,7 @@ public class MyReference implements PsiReference {
     protected ArrayList<VirtualFile> resultDirs;
     protected List<KohanaClassesState.KohanaClass> classesList;
 
-    public MyReference(String path, PsiElement element, TextRange textRange, Project project, ArrayList<VirtualFile> resultDirs, KohanaClassesState.KohanaClass kc, Boolean kohanaPSR, Boolean debugMode) {
+    public KfnReference(String path, PsiElement element, TextRange textRange, Project project, ArrayList<VirtualFile> resultDirs, KohanaClassesState.KohanaClass kc, Boolean kohanaPSR, Boolean debugMode) {
         this.element = element;
         this.textRange = textRange;
         this.project = project;
