@@ -58,7 +58,6 @@ public class StorageHelper {
     {
 
         PropertiesComponent properties = PropertiesComponent.getInstance(project);
-//        project
         if (storageObject.kohanaPSR != null)
         {
             properties.setValue(gitBranchName + "kohanaPSR", String.valueOf(storageObject.kohanaPSR));
@@ -107,7 +106,7 @@ public class StorageHelper {
         PropertiesComponent properties = PropertiesComponent.getInstance(project);
         storageObject.factoriesList = properties.getValue(gitBranchName + "factoriesList", DefaultSettings.factoriesList);
         storageObject.kohanaPSR = properties.getBoolean(gitBranchName + "kohanaPSR", true);
-        storageObject.debugMode = properties.getBoolean(gitBranchName + "debugMode", true);
+        storageObject.debugMode = properties.getBoolean(gitBranchName + "debugMode", false);
 
         /**
          * classes

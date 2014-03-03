@@ -73,68 +73,50 @@
       <file leaf-file-name="KfnPsiReferenceProvider.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="3315">
-              <caret line="18" column="23" selection-start="683" selection-end="683" />
-              <folding />
+            <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="3360">
+              <caret line="12" column="22" selection-start="477" selection-end="477" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultSettings.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DefaultSettings.java">
+      <file leaf-file-name="KfnPolyVariantReference.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KfnPolyVariantReference.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="180">
-              <caret line="2" column="25" selection-start="57" selection-end="57" />
-              <folding />
+            <state vertical-scroll-proportion="-8.333333" vertical-offset="0" max-vertical-offset="4365">
+              <caret line="15" column="0" selection-start="596" selection-end="596" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1785#1786#0" expanded="true" />
+                <element signature="e#1820#1821#0" expanded="true" />
+                <element signature="e#1868#1869#0" expanded="true" />
+                <element signature="e#1900#1901#0" expanded="true" />
+                <element signature="e#2911#2912#0" expanded="true" />
+                <element signature="e#2938#2939#0" expanded="true" />
+                <element signature="e#7419#7420#0" expanded="true" />
+                <element signature="e#7460#7461#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plugin.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="plugin.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07995736" vertical-offset="0" max-vertical-offset="938">
-              <caret line="5" column="18" selection-start="184" selection-end="184" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+              <caret line="19" column="48" selection-start="1028" selection-end="1028" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="165">
-              <caret line="5" column="38" selection-start="318" selection-end="318" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KohanaClassesState.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/KohanaClassesState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2130" max-vertical-offset="3330">
-              <caret line="142" column="31" selection-start="4519" selection-end="4519" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KfnPsiReferenceContributor.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="KfnPsiReferenceContributor.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceContributor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="675">
-              <caret line="25" column="17" selection-start="931" selection-end="931" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KfnReference.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/KfnReference.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2655">
-              <caret line="39" column="0" selection-start="1392" selection-end="1392" />
+            <state vertical-scroll-proportion="0.32374102" vertical-offset="0" max-vertical-offset="556">
+              <caret line="21" column="34" selection-start="838" selection-end="838" />
               <folding />
             </state>
           </provider>
@@ -164,16 +146,19 @@
         <option value="$PROJECT_DIR$/src/MyReference.java" />
         <option value="$PROJECT_DIR$/src/SettingsForm.java" />
         <option value="$PROJECT_DIR$/src/PathsState.java" />
-        <option value="$PROJECT_DIR$/src/StorageHelper.java" />
         <option value="$PROJECT_DIR$/src/MyPsiReferenceProvider.java" />
         <option value="$PROJECT_DIR$/src/KFNPsiReferenceProvider.java" />
         <option value="$PROJECT_DIR$/src/KFNPsiReferenceContributor.java" />
         <option value="$PROJECT_DIR$/src/KFNReference.java" />
-        <option value="$PROJECT_DIR$/src/KfnReference.java" />
         <option value="$PROJECT_DIR$/src/KfnPsiReferenceContributor.java" />
-        <option value="$PROJECT_DIR$/src/KfnPsiReferenceProvider.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/PsiViewerTreeModel.java" />
+        <option value="$PROJECT_DIR$/src/KfnReferencePoly.java" />
+        <option value="$PROJECT_DIR$/src/StorageHelper.java" />
+        <option value="$PROJECT_DIR$/src/KfnReference.java" />
         <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/KfnPolyVariantReference.java" />
+        <option value="$PROJECT_DIR$/src/KfnPsiReferenceProvider.java" />
       </list>
     </option>
   </component>
@@ -234,6 +219,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -282,7 +268,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -307,6 +292,8 @@
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="LayoutCode.rearrangeEntries" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -573,12 +560,16 @@
       <workItem from="1392551801021" duration="1813000" />
       <workItem from="1392626826868" duration="2489000" />
       <workItem from="1392629362488" duration="748000" />
-      <workItem from="1392630515716" duration="1000000" />
+      <workItem from="1392630515716" duration="1328000" />
+      <workItem from="1392643056151" duration="208000" />
+      <workItem from="1392643335575" duration="66000" />
+      <workItem from="1393420983586" duration="18117000" />
+      <workItem from="1393759403023" duration="13789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68559000" />
+    <option name="totallyTimeSpent" value="101067000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -617,6 +608,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4953368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -631,7 +623,6 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3150259" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4953368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -656,186 +647,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PsiViewerTreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="4590">
-          <caret line="46" column="43" selection-start="1339" selection-end="1339" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StorageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1764" max-vertical-offset="2556">
-          <caret line="98" column="0" selection-start="3670" selection-end="3670" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7812" max-vertical-offset="8730">
-          <caret line="434" column="0" selection-start="18719" selection-end="18719" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="882">
-          <caret line="16" column="48" selection-start="764" selection-end="764" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KfnReference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400">
-          <caret line="104" column="34" selection-start="3266" selection-end="3266" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KohanaClassesState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3015" max-vertical-offset="3210">
-          <caret line="201" column="65" selection-start="6292" selection-end="6292" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/ide/IdeEventQueue.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="2775">
-          <caret line="140" column="16" selection-start="6556" selection-end="6556" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1301" max-vertical-offset="2445">
-          <caret line="96" column="36" selection-start="4724" selection-end="4724" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/util.jar!/com/intellij/openapi/util/TextRange.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1305">
-          <caret line="12" column="11" selection-start="475" selection-end="475" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiReferenceProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="345">
-          <caret line="6" column="22" selection-start="168" selection-end="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PsiViewerTreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="3825">
-          <caret line="46" column="43" selection-start="1339" selection-end="1339" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StorageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1470" max-vertical-offset="2130">
-          <caret line="98" column="0" selection-start="3670" selection-end="3670" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6510" max-vertical-offset="7275">
-          <caret line="434" column="0" selection-start="18719" selection-end="18719" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="735">
-          <caret line="16" column="48" selection-start="764" selection-end="764" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KohanaFactoryNavigator.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <caret line="10" column="14" selection-start="513" selection-end="513" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiReferenceProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <caret line="6" column="22" selection-start="168" selection-end="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditClassesDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1575" max-vertical-offset="2730">
-          <caret line="105" column="10" selection-start="3267" selection-end="3267" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/util.jar!/com/intellij/openapi/diagnostic/Log.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="11" column="28" selection-start="401" selection-end="401" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/commons-logging-1.1.1.jar!/org/apache/commons/logging/Log.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-          <caret line="23" column="9" selection-start="477" selection-end="477" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/notification/Notification.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-          <caret line="18" column="11" selection-start="759" selection-end="759" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/util.jar!/com/intellij/openapi/diagnostic/Logger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
-          <caret line="15" column="57" selection-start="554" selection-end="554" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PsiViewerTreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2985" max-vertical-offset="3825">
-          <caret line="199" column="8" selection-start="5718" selection-end="5718" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EditPathDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
-          <caret line="0" column="12" selection-start="12" selection-end="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/openapi/vcs/VcsKey.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
@@ -864,20 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/source/resolve/reference/ReferenceProvidersRegistry.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5780347" vertical-offset="0" max-vertical-offset="519">
-          <caret line="21" column="50" selection-start="934" selection-end="934" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/source/resolve/reference/ReferenceProvidersRegistryImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.433526" vertical-offset="0" max-vertical-offset="519">
-          <caret line="16" column="46" selection-start="1142" selection-end="1142" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/ide/IdeEventQueue.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1912" max-vertical-offset="2760">
@@ -889,20 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="142" max-vertical-offset="1380">
           <caret line="22" column="16" selection-start="1567" selection-end="1567" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/util.jar!/com/intellij/openapi/util/TextRange.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
-          <caret line="12" column="11" selection-start="475" selection-end="475" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/SharedPsiElementImplUtil.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="17" column="24" selection-start="772" selection-end="772" />
         </state>
       </provider>
     </entry>
@@ -935,38 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PathsState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2145" max-vertical-offset="3165">
-          <caret line="143" column="26" selection-start="4188" selection-end="4188" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StorageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
-          <caret line="39" column="9" selection-start="1147" selection-end="1147" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KohanaFactoryNavigatorSettingsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1684435" vertical-offset="787" max-vertical-offset="1725">
-          <caret line="76" column="23" selection-start="2108" selection-end="2108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DefaultSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <caret line="2" column="25" selection-start="57" selection-end="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiReferenceRegistrar.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3314917" vertical-offset="0" max-vertical-offset="543">
@@ -981,14 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KfnReference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2175">
-          <caret line="39" column="0" selection-start="1392" selection-end="1392" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/openapi/project/ProjectManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44751382" vertical-offset="102" max-vertical-offset="645">
@@ -996,42 +739,308 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceContributor.java">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-          <caret line="25" column="17" selection-start="931" selection-end="931" />
+        <state vertical-scroll-proportion="0.04928806" vertical-offset="0" max-vertical-offset="913">
+          <caret line="3" column="28" selection-start="199" selection-end="199" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KohanaFactoryNavigatorSettingsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="787" max-vertical-offset="1725">
+          <caret line="76" column="23" selection-start="2108" selection-end="2108" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/PathsState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3135">
-          <caret line="18" column="23" selection-start="683" selection-end="683" />
+        <state vertical-scroll-proportion="-10.962963" vertical-offset="1864" max-vertical-offset="3090">
+          <caret line="149" column="25" selection-start="4390" selection-end="4392" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PsiViewerTreeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.814815" vertical-offset="1451" max-vertical-offset="3960">
+          <caret line="138" column="34" selection-start="3978" selection-end="3978" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DefaultSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="2" column="20" selection-start="52" selection-end="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StorageHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.074074" vertical-offset="1096" max-vertical-offset="3165">
+          <caret line="108" column="92" selection-start="3823" selection-end="3823" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KohanaClassesState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="3180">
-          <caret line="142" column="31" selection-start="4519" selection-end="4519" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1827" max-vertical-offset="3180">
+          <caret line="153" column="5" selection-start="4794" selection-end="4794" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/SharedPsiElementImplUtil.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="165">
-          <caret line="5" column="38" selection-start="318" selection-end="318" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="12" column="48" selection-start="411" selection-end="411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/source/PsiFileImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1792" max-vertical-offset="3825">
+          <caret line="132" column="41" selection-start="7065" selection-end="7065" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/codeInsight/TargetElementUtilBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="457" max-vertical-offset="1185">
+          <caret line="43" column="39" selection-start="2102" selection-end="2102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/codeInsight/navigation/actions/GotoDeclarationAction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="645">
+          <caret line="35" column="48" selection-start="2397" selection-end="2397" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/openapi/progress/ProgressManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80662984" vertical-offset="492" max-vertical-offset="1035">
+          <caret line="63" column="16" selection-start="4923" selection-end="4923" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/openapi/progress/impl/ProgressManagerImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31860036" vertical-offset="337" max-vertical-offset="1545">
+          <caret line="35" column="16" selection-start="1867" selection-end="1867" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/openapi/progress/util/ProgressIndicatorUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3038674" vertical-offset="0" max-vertical-offset="543">
+          <caret line="12" column="23" selection-start="623" selection-end="623" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/codeInsight/navigation/CtrlMouseHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/openapi/application/impl/ApplicationImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4305">
+          <caret line="0" column="0" selection-start="0" selection-end="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/MultiplePsiFilesPerDocumentFileViewProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="199" max-vertical-offset="720">
+          <caret line="40" column="41" selection-start="2199" selection-end="2199" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayList.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68345326" vertical-offset="640" max-vertical-offset="2595">
+          <caret line="69" column="0" selection-start="2466" selection-end="2466" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/source/resolve/reference/ReferenceProvidersRegistry.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="21" column="50" selection-start="934" selection-end="934" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="19" column="28" selection-start="541" selection-end="541" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiReference.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="15" column="32" selection-start="490" selection-end="490" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/source/resolve/reference/ReferenceProvidersRegistryImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="16" column="46" selection-start="1142" selection-end="1142" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiPolyVariantReference.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08187773" vertical-offset="0" max-vertical-offset="916">
+          <caret line="6" column="17" selection-start="163" selection-end="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/NavigatablePsiElement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14044943" vertical-offset="0" max-vertical-offset="534">
+          <caret line="6" column="71" selection-start="217" selection-end="217" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiFileSystemItem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14044943" vertical-offset="0" max-vertical-offset="534">
+          <caret line="6" column="116" selection-start="262" selection-end="262" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiFile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13489209" vertical-offset="0" max-vertical-offset="645">
+          <caret line="6" column="59" selection-start="205" selection-end="205" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/ResolveResult.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24280575" vertical-offset="0" max-vertical-offset="556">
+          <caret line="9" column="39" selection-start="269" selection-end="269" />
+          <folding>
+            <element signature="e#0#347#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiElementResolveResult.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3038674" vertical-offset="0" max-vertical-offset="555">
+          <caret line="12" column="0" selection-start="496" selection-end="496" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/util.jar!/com/intellij/openapi/util/TextRange.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17837837" vertical-offset="0" max-vertical-offset="1290">
+          <caret line="12" column="11" selection-start="475" selection-end="475" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/codeInsight/completion/CompletionData.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="447" max-vertical-offset="990">
+          <caret line="51" column="0" selection-start="3215" selection-end="3215" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/phpstorm.jar!/com/intellij/psi/impl/source/resolve/reference/impl/providers/FileReferenceSet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="1740">
+          <caret line="37" column="97" selection-start="2740" selection-end="2740" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/psi/PsiManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="765">
+          <caret line="46" column="0" selection-start="234" selection-end="2433" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/phpstorm.131.374/lib/openapi.jar!/com/intellij/openapi/vfs/VirtualFile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2505">
+          <caret line="89" column="47" selection-start="3881" selection-end="3892" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/util/List.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59532374" vertical-offset="359" max-vertical-offset="915">
+          <caret line="47" column="8" selection-start="955" selection-end="955" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07995736" vertical-offset="0" max-vertical-offset="938">
-          <caret line="5" column="18" selection-start="184" selection-end="184" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="19" column="48" selection-start="1028" selection-end="1028" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="3360">
+          <caret line="12" column="22" selection-start="477" selection-end="477" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KfnPolyVariantReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.333333" vertical-offset="0" max-vertical-offset="4365">
+          <caret line="15" column="0" selection-start="596" selection-end="596" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1785#1786#0" expanded="true" />
+            <element signature="e#1820#1821#0" expanded="true" />
+            <element signature="e#1868#1869#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#2911#2912#0" expanded="true" />
+            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="e#7419#7420#0" expanded="true" />
+            <element signature="e#7460#7461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KfnPsiReferenceContributor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32374102" vertical-offset="0" max-vertical-offset="556">
+          <caret line="21" column="34" selection-start="838" selection-end="838" />
           <folding />
         </state>
       </provider>

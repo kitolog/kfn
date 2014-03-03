@@ -3,7 +3,7 @@
     <description>
         PHP Framework Kohana factories navigator for PhpStorm.
     </description>
-    <version>1.2.1</version>
+    <version>1.3</version>
     <vendor email="nikita.kosilo@gmail.com" url="http://www.softswiss.com">kitolog</vendor>
 
     <change-notes><![CDATA[
@@ -17,6 +17,7 @@
       v1.1: Minor bugfixes and corrections<br />
       v1.2: Added separating setting by git branches, added searching files not only with class regexp, hidden Notifications, added DebugMode<br />
       v1.2.1: Moved settings reader to plugin initialization<br />
+      v2: Added search results multiselect<br />
       ]]>
     </change-notes>
 

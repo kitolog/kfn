@@ -84,8 +84,8 @@ public class KfnPsiReferenceProvider extends PsiReferenceProvider {
                             return PsiReference.EMPTY_ARRAY;
                         }
 
-                        PsiReference ref = new KfnReference(uri, element, new TextRange(start, start + len), project, resultDirs, KohanaClass, kohanaPSR, debugMode);
-                        return new PsiReference[]{ref};
+                        PsiReference reference = new KfnPolyVariantReference(uri, element, new TextRange(start, start + len), project, resultDirs, KohanaClass, kohanaPSR, debugMode);
+                        return new PsiReference[]{reference};
                     }
                     else
                     {
@@ -98,10 +98,10 @@ public class KfnPsiReferenceProvider extends PsiReferenceProvider {
                 }
                 catch (Exception e)
                 {
-
+                    String message = e.getMessage();
                     if (debugMode)
                     {
-                        Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getMessage(), NotificationType.ERROR));
+                        Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + message, NotificationType.ERROR));
                         Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getStackTrace(), NotificationType.ERROR));
                     }
                 }
@@ -109,10 +109,11 @@ public class KfnPsiReferenceProvider extends PsiReferenceProvider {
         }
         catch (Exception e)
         {
+            String message = e.getMessage();
             if (debugMode)
             {
-                Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception!", NotificationType.ERROR));
-                e.printStackTrace();
+                Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + message, NotificationType.ERROR));
+                Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "getReferencesByElement", "Exception: " + e.getStackTrace(), NotificationType.ERROR));
             }
         }
         return PsiReference.EMPTY_ARRAY;
@@ -193,8 +194,10 @@ public class KfnPsiReferenceProvider extends PsiReferenceProvider {
                 }
                 catch (Exception ex)
                 {
+                    String message = ex.getMessage();
                     if (debugMode)
                     {
+                        Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "isKohanaFactoryCall", "Exception: " + message, NotificationType.ERROR));
                         Notifications.Bus.notify(new Notification("KohanaFactoryNavigator", "isKohanaFactoryCall", "Exception: " + ex.getStackTrace(), NotificationType.ERROR));
                     }
                 }
