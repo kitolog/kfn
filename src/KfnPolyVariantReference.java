@@ -1,17 +1,22 @@
 import com.intellij.codeInsight.lookup.LookupElement;
+import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.newvfs.impl.VirtualDirectoryImpl;
+import com.intellij.openapi.vfs.newvfs.impl.VirtualFileImpl;
 import com.intellij.psi.*;
 import com.intellij.util.IncorrectOperationException;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class KfnPolyVariantReference implements PsiPolyVariantReference {
@@ -24,7 +29,7 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
     protected Boolean debugMode;
     protected KohanaClassesState.KohanaClass KohanaClass;
     protected ArrayList<VirtualFile> resultDirs;
-    protected List<ResolveResult> resolveResultsList;
+    protected List<ResolveResult> resultsList;
 
     public KfnPolyVariantReference(String path, PsiElement element, TextRange textRange, Project project, ArrayList<VirtualFile> resultDirs, KohanaClassesState.KohanaClass kc, Boolean kohanaPSR, Boolean debugMode)
     {
@@ -37,7 +42,7 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
         this.kohanaPSR = kohanaPSR;
         this.debugMode = debugMode;
 
-        this.resolveResultsList = new ArrayList<ResolveResult>();
+        this.resultsList = new ArrayList<ResolveResult>();
         this.findPsiElements();
     }
 
@@ -82,17 +87,129 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
         return resolve() == element;
     }
 
+    @NotNull
+    @Override
     public Object[] getVariants()
     {
-        LookupElement[] results = new LookupElement[0];
-        List<ResolveResult> resultsList = getResultElement();
-        if (resultsList != null && resultsList.size() > 0)
+        Object[] results;
+        List<LookupElement> resultFiles = new ArrayList<LookupElement>();
+        String searchPath = preparePath(path, false, true);
+        String[] pathParts = searchPath.split("/");
+        if (pathParts.length > 0)
         {
-            results = resultsList.toArray(new LookupElement[resultsList.size()]);
+            pathParts[pathParts.length - 1] = pathParts[pathParts.length - 1].replace(".php", "")
+                    .replace("intellijidearulezzz ", "")
+                    .replace("Intellijidearulezzz ", "");
+
+            //remove last element if it's empty
+            if (pathParts[pathParts.length - 1].equals(""))
+            {
+                pathParts = Arrays.copyOf(ArrayUtils.removeElement(pathParts, pathParts[pathParts.length - 1]), ArrayUtils.removeElement(pathParts, pathParts[pathParts.length - 1]).length, String[].class);
+            }
+
+            for (VirtualFile directory : resultDirs)
+            {
+                for (int i = 0; i < pathParts.length; i++)
+                {
+                    VirtualFile subDir = directory.findFileByRelativePath(pathParts[i]);
+                    if (subDir != null && subDir.isDirectory())
+                    {
+                        directory = subDir;
+                    }
+                }
+
+                String preparedFileName = pathParts[pathParts.length - 1];
+
+                if (directory.getName()
+                        .contains(preparedFileName))
+                {
+                    preparedFileName = "";
+                }
+
+                ArrayList<String> allFiles = getAllFilesInDirectory(directory, null);
+                String foundFile;
+                String psiFileNamePrefix = "";
+                for (int i = 0; i < (preparedFileName.equals("") ? pathParts.length : pathParts.length - 1); i++)
+                {
+                    psiFileNamePrefix += pathParts[i] + "_";
+                }
+
+                for (int i = 0; i < allFiles.size(); i++)
+                {
+                    foundFile = allFiles.get(i);
+                    if (foundFile.contains(preparedFileName) && foundFile.endsWith(".php"))
+                    {
+                        VirtualFile foundVirtualFile = directory.findFileByRelativePath(foundFile);
+                        if (foundVirtualFile != null)
+                        {
+                            PsiFile foundPsiFile = PsiManager.getInstance(project)
+                                    .findFile(foundVirtualFile);
+
+                            if (foundPsiFile != null)
+                            {
+                                String psiFileName = psiFileNamePrefix + foundFile.replace("/", "_")
+                                        .replace(".php", "");
+
+
+                                TemplateLookupElement lookup = new TemplateLookupElement(psiFileName, foundPsiFile);
+                                Boolean exists = false;
+
+                                for (LookupElement resultFile : resultFiles)
+                                {
+                                    if (resultFile.getLookupString()
+                                            .equals(lookup.getLookupString()))
+                                    {
+                                        exists = true;
+                                    }
+                                }
+
+                                if (!exists)
+                                {
+                                    resultFiles.add(lookup);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+
+        results = resultFiles.toArray();
 
         return results;
     }
+
+    protected ArrayList<String> getAllFilesInDirectory(VirtualFile directory, @Nullable String parentName)
+    {
+        ArrayList<String> files = new ArrayList<String>();
+
+        VirtualFile[] children = directory.getChildren();
+        if (children.length != 0)
+        {
+            for (int i = 0; i < children.length; i++)
+            {
+                String childName = "";
+                if (children[i] instanceof VirtualDirectoryImpl)
+                {
+                    files.addAll(getAllFilesInDirectory(children[i], children[i].getName()));
+                }
+                else if (children[i] instanceof VirtualFileImpl)
+                {
+                    if (parentName != null)
+                    {
+                        childName += parentName + "/";
+                    }
+                    childName += children[i].getPath()
+                            .replace(directory.getPath() + "/", "");
+
+                    files.add(childName);
+                }
+            }
+        }
+
+        return files;
+    }
+
 
     @Override
     public String getCanonicalText()
@@ -126,7 +243,6 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
         try
         {
             String originalPath = preparePath(path, false, false);
-            String searchPath = preparePath(path, false, true);
             path = preparePath(path, true, false);
             ResolveResult resolveResultElement;
             for (VirtualFile directory : resultDirs)
@@ -173,21 +289,6 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
 
                     setResultElement(resolveResultElement);
                 }
-
-                /**
-                 * @TODO: implement search by part of name
-                 */
-//                VirtualFile searchTargetFile = directory.findFileByRelativePath(searchPath);
-//                if (searchTargetFile != null)
-//                {
-//                    resolveResultElement = null;
-//                    PsiFile searchFile = PsiManager.getInstance(project)
-//                            .findFile(searchTargetFile);
-//
-//                    resolveResultElement = new PsiElementResolveResult(searchFile);
-//
-//                    setResultElement(resolveResultElement);
-//                }
             }
         }
         catch (Exception e)
@@ -209,15 +310,15 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
 
     protected void setResultElement(ResolveResult resolveResultElement)
     {
-        if (resolveResultElement != null && resolveResultsList.indexOf(resolveResultElement) < 0)
+        if (resolveResultElement != null && resultsList.indexOf(resolveResultElement) < 0)
         {
-            resolveResultsList.add(resolveResultElement);
+            resultsList.add(resolveResultElement);
         }
     }
 
     protected List<ResolveResult> getResultElement()
     {
-        return resolveResultsList;
+        return resultsList;
     }
 
     public String preparePath(String pathString, Boolean replaceParts, Boolean addSearch)
@@ -273,12 +374,10 @@ public class KfnPolyVariantReference implements PsiPolyVariantReference {
             pathString = prepared;
         }
 
-        if (addSearch == true)
+        if (addSearch == false)
         {
-            pathString += "*";
+            pathString += ".php";
         }
-
-        pathString += ".php";
 
         return pathString;
     }
